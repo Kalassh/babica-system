@@ -46,7 +46,7 @@ CreateThread(function ()
 		end
 	end
 end)
-
+local isDead = false 
 pokazi3dtext = function(pos, text)
 	local pocni = text
     local pocetak, kraj = string.find(text, '~([^~]+)~')
@@ -110,8 +110,14 @@ end
 babuska = function()
     local player = PlayerPedId()
     local ozivljavanje = Babica.vrijeme * 1000
+	if isDead then -- zasto ziv da se ozivi ? :D
     FreezeEntityPosition(player, true)
     exports.rprogress:Start('Lijecite se...', ozivljavanje)
     TriggerEvent('esx_ambulancejob:revive')
     FreezeEntityPosition(player, false)
+	else 
+		print('nisi mrtav)
+	end
 end
+AddEventHandler('playerSpawned', function(spawn) isDead = false end)
+AddEventHandler('esx:onPlayerDeath', function(data) isDead = true end)
