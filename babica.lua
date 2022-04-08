@@ -87,9 +87,9 @@ CreateThread(function()
     end
 end)
 
-AddEventHandler('babica:revive', function()
+--[[AddEventHandler('babica:revive', function()
     babuska()
-end)
+end)]]
 
 local peds = {
     'cs_mrs_thornhill',
@@ -98,10 +98,13 @@ local peds = {
 exports['qtarget']:AddTargetModel(peds, {
     options = {
         {
-            event = "babica:revive",
             icon = "fa-solid fa-hand-holding-medical",
             label = "Ozivi se",
-        },
+            action = function()
+              babuska() -- da se ne ljuti katoteki
+            end
+				
+	},
     },
     distance = 2.0
 })
