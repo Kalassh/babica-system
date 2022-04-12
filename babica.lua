@@ -26,7 +26,7 @@ CreateThread(function ()
     if babica < 20.0 then
    	DrawMarker(20, vector3(-53.6833, -2523.3218, 7.4012), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 49, 105, 235, 100, false, true, 2, true, false, false, false)
 	pauza = false
-    if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), -53.6833, -2523.3218, 7.4012, true) < 2 then
+    if babica < 2 then
        pokazi3dtext(GetEntityCoords(PlayerPedId()), 'Pritisnite ~INPUT_CONTEXT~ za ~b~ozivljavanje~s~.', 250)
         if IsControlJustPressed(0, 38) and IsPedOnFoot(playerPed) then
               babuska()
@@ -37,7 +37,7 @@ CreateThread(function ()
     if babica2 < 20.0 then
         DrawMarker(20, vector3(-440.4526, 1595.0342, 358.4680), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 49, 105, 235, 100, false, true, 2, true, false, false, false)
         pauza = false
-        if GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), -440.4526, 1595.0342, 358.4680, true) < 2 then
+        if babica2 < 2 then
           pokazi3dtext(GetEntityCoords(PlayerPedId()), 'Pritisnite ~INPUT_CONTEXT~ za ~b~ozivljavanje~s~.', 250)
             if IsControlJustPressed(0, 38) and IsPedOnFoot(playerPed) then
               babuska()
