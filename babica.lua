@@ -64,10 +64,10 @@ pokazi3dtext = function(pos, text)
     EndTextCommandDisplayHelp(2, false, false, -1)
     SetFloatingHelpTextWorldPosition(1, pos + vector3(0.0, 0.0, 1.0))
     SetFloatingHelpTextStyle(1, 1, 2, -1, 3, 0)
-    end
 end
 
-if Babica.qtarget then -- Ako je QTARGET ukljucen
+else
+
 -- Npcevi
 local NPC = {
     {model = "cs_mrs_thornhill", x = -53.8833, y = -2523.3218, z = 6.4012, h = 57.3296}, --Lokacija 1
