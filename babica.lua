@@ -12,23 +12,23 @@ ESX = nil
 
 CreateThread(function() while ESX == nil do TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end) Wait(0) end end)
 
-if not Babica.qtarget then -- Ako je QTARGET iskljucen
+if not Config.qtarget then -- Ako je QTARGET iskljucen
 CreateThread(function ()
 	while true do
 		Wait(5)
 		local playerPed = PlayerPedId()
 		local coords = GetEntityCoords(playerPed)
-		local babica = #(coords - vector3(-53.6833, -2523.3218, 7.4012))
-        	local babica2 = #(coords - vector3(-440.4526, 1595.0342, 358.4680))
+		local babica = #(coords - Config.Babica.Lokacija1)
+        	local babica2 = #(coords - Config.Babica.Lokacija2)
 
 		local pauza = true
         
     if babica < 20.0 then
-   	DrawMarker(20, vector3(-53.6833, -2523.3218, 7.4012), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 49, 105, 235, 100, false, true, 2, true, false, false, false)
+   	DrawMarker(20, Config.Babica.Lokacija1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 49, 105, 235, 100, false, true, 2, true, false, false, false)
 	pauza = false
 					
     if babica < 2 then
-       pokazi3dtext(GetEntityCoords(PlayerPedId()), 'Pritisnite ~INPUT_CONTEXT~ za ~b~ozivljavanje~s~.', 250)
+       pokazi3dtext(coords, 'Pritisnite ~INPUT_CONTEXT~ za ~b~ozivljavanje~s~.', 250)
         if IsControlJustPressed(0, 38) and IsPedOnFoot(playerPed) then
               babuska()
             end
@@ -36,11 +36,11 @@ CreateThread(function ()
     end
 
     if babica2 < 20.0 then
-        DrawMarker(20, vector3(-440.4526, 1595.0342, 358.4680), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 49, 105, 235, 100, false, true, 2, true, false, false, false)
+        DrawMarker(20, Config.Babica.Lokacija2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 49, 105, 235, 100, false, true, 2, true, false, false, false)
         pauza = false
 					
         if babica2 < 2 then
-          pokazi3dtext(GetEntityCoords(PlayerPedId()), 'Pritisnite ~INPUT_CONTEXT~ za ~b~ozivljavanje~s~.', 250)
+          pokazi3dtext(coords, 'Pritisnite ~INPUT_CONTEXT~ za ~b~ozivljavanje~s~.', 250)
             if IsControlJustPressed(0, 38) and IsPedOnFoot(playerPed) then
               babuska()
             end
@@ -114,7 +114,7 @@ local mrtav = false
 
 babuska = function()
     local player = PlayerPedId()
-    local ozivljavanje = Babica.vrijeme * 1000
+    local ozivljavanje = Config.Babica.Vrijeme * 1000
     if mrtav then
     FreezeEntityPosition(player, true)
     exports.rprogress:Start('Lijecite se...', ozivljavanje)
