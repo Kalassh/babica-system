@@ -68,8 +68,6 @@ pokazi3dtext = function(pos, text)
     SetFloatingHelpTextStyle(1, 1, 2, -1, 3, 0)
 end
 
-else
-
 -- Npcevi
 local NPC = {
     {model = "cs_mrs_thornhill", x = -53.8833, y = -2523.3218, z = 6.4012, h = 57.3296}, --Lokacija 1
@@ -108,7 +106,6 @@ exports['qtarget']:AddTargetModel(peds, {
     },
     distance = 2.0
 })
-end
 
 local mrtav = false
 
