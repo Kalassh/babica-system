@@ -2,18 +2,18 @@ fx_version 'adamant'
 game 'gta5'
 
 author 'Kalashnikov#3535'
-description "Babica System"
+description 'Babica System'
 version '1.0.0'
 
 client_scripts {
-    "babica.lua"
+    'babica.lua'
 }
 
 shared_scripts {
-	'config.lua'
+    'config.lua'
 }
 
 dependencies {
-	'qtarget'
+	'qtarget',
 	'rprogress'
 }
